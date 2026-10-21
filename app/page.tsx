@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContactForm from "@/components/contact-form";
+import CodeTypingEditor from "@/components/code-typing-editor";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -125,10 +126,12 @@ export default function Home() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
+        <nav aria-label="Navigasi utama" className="hidden items-center gap-6 text-sm text-slate-300 lg:flex">
+          <a className="transition hover:text-white" href="#beranda">Beranda</a>
           <a className="transition hover:text-white" href="#layanan">Layanan</a>
           <a className="transition hover:text-white" href="#proses">Proses</a>
           <a className="transition hover:text-white" href="#teknologi">Teknologi</a>
+          <a className="transition hover:text-white" href="/tentang-kami">Tentang Kami</a>
           <a className="transition hover:text-white" href="#kontak">Kontak</a>
         </nav>
 
@@ -138,9 +141,14 @@ export default function Home() {
         >
           Konsultasi proyek <ArrowUpRight size={16} />
         </a>
-        <a href="#kontak" className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-white/[0.05] md:hidden" aria-label="Ke bagian kontak">
-          Kontak <ArrowUpRight size={15} />
-        </a>
+        <div className="flex items-center gap-2 lg:hidden">
+          <a href="/tentang-kami" className="inline-flex items-center rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/[0.05]">
+            Tentang
+          </a>
+          <a href="#kontak" className="inline-flex items-center gap-1 rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/[0.05]" aria-label="Ke bagian kontak">
+            Kontak <ArrowUpRight size={15} />
+          </a>
+        </div>
       </header>
 
       <section id="beranda" className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 px-5 pb-24 pt-16 sm:px-8 md:pt-24 lg:grid-cols-[1.08fr_0.92fr] lg:px-10 lg:pb-32 lg:pt-28">
@@ -178,18 +186,7 @@ export default function Home() {
               <span className="text-xs text-slate-500">karyakode / project.ts</span>
               <Code2 size={16} className="text-slate-500" />
             </div>
-            <div className="grid grid-cols-[44px_1fr] gap-3 py-6 font-mono text-xs leading-7 sm:text-sm">
-              <div className="select-none text-right text-slate-600">01<br/>02<br/>03<br/>04<br/>05<br/>06<br/>07</div>
-              <div className="overflow-hidden whitespace-nowrap text-slate-300">
-                <div><span className="text-purple-300">const</span> <span className="text-blue-300">digitalProduct</span> = {'{'}</div>
-                <div className="pl-4">idea: <span className="text-emerald-300">&quot;Your business goal&quot;</span>,</div>
-                <div className="pl-4">design: <span className="text-emerald-300">&quot;Thoughtful &amp; useful&quot;</span>,</div>
-                <div className="pl-4">technology: [</div>
-                <div className="pl-8 text-amber-200">&quot;Web&quot;, &quot;Backend&quot;, &quot;Mobile&quot;</div>
-                <div className="pl-4">],</div>
-                <div> {'}'};</div>
-              </div>
-            </div>
+            <CodeTypingEditor />
             <div className="grid grid-cols-3 gap-2 border-t border-white/[0.08] pt-4 sm:gap-3">
               <div className="rounded-xl bg-white/[0.04] p-3"><Globe2 size={18} className="mb-3 text-blue-400"/><p className="text-xs font-medium text-slate-200">Web</p><p className="mt-1 text-[10px] text-slate-500">Sites & apps</p></div>
               <div className="rounded-xl bg-white/[0.04] p-3"><Braces size={18} className="mb-3 text-blue-400"/><p className="text-xs font-medium text-slate-200">Backend</p><p className="mt-1 text-[10px] text-slate-500">API & systems</p></div>
@@ -358,6 +355,11 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-7 text-sm sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
           <a href="#beranda" className="flex items-center gap-2 font-semibold"><Code2 size={18}/> KaryaKode</a>
           <p className="text-slate-500">Website, aplikasi, dan dukungan teknis untuk kebutuhan bisnis.</p>
+          <nav aria-label="Navigasi footer" className="flex flex-wrap gap-x-5 gap-y-2 text-slate-400">
+            <a href="/tentang-kami" className="transition hover:text-white">Tentang Kami</a>
+            <a href="#layanan" className="transition hover:text-white">Layanan</a>
+            <a href="#kontak" className="transition hover:text-white">Kontak</a>
+          </nav>
           <p className="text-xs text-slate-600">© {new Date().getFullYear()} KaryaKode. All rights reserved.</p>
         </div>
       </footer>

@@ -45,3 +45,27 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+.code-typing-caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.15em;
+  margin-left: 2px;
+  vertical-align: -0.18em;
+  border-radius: 1px;
+  background: #60a5fa;
+  animation: code-caret-blink 1s steps(2, start) infinite;
+}
+
+@keyframes code-caret-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .code-typing-caret {
+    animation: none;
+  }
+}

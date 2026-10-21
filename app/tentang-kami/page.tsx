@@ -66,47 +66,74 @@ export default function AboutPage() {
     >
       <div className="pointer-events-none fixed inset-0 -z-0 bg-[radial-gradient(ellipse_at_70%_0%,rgba(57,120,246,0.15),transparent_42%)]" />
 
-      <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
-        <Link
-          href="/"
-          className="flex items-center gap-3"
-          aria-label="KaryaKode, ke beranda"
-        >
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-white text-[#10131a]">
-            <Code2 size={23} strokeWidth={2.5} />
-          </span>
-          <span>
-            <span className="block text-lg font-bold tracking-tight">
-              KaryaKode
-            </span>
-            <span className="block text-[10px] font-semibold tracking-[0.22em] text-slate-500">
-              DIGITAL STUDIO
-            </span>
-          </span>
-        </Link>
 
-        <nav
-          aria-label="Navigasi utama"
-          className="hidden items-center gap-7 text-sm text-slate-300 md:flex"
-        >
-          <Link href="/#layanan" className="transition hover:text-white">
-            Layanan
-          </Link>
-          <Link href="/#proses" className="transition hover:text-white">
-            Proses
-          </Link>
-          <Link href="/tentang-kami" className="text-white">
-            Tentang Kami
-          </Link>
-        </nav>
+<header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
+  <Link
+    href="/#beranda"
+    className="flex items-center gap-3"
+    aria-label="KaryaKode, ke beranda"
+  >
+    <span className="grid h-10 w-10 place-items-center rounded-xl bg-white text-[#10131a]">
+      <Code2 size={23} strokeWidth={2.5} />
+    </span>
+    <span>
+      <span className="block text-lg font-bold tracking-tight">
+        KaryaKode
+      </span>
+      <span className="block text-[10px] font-semibold tracking-[0.22em] text-slate-500">
+        DIGITAL STUDIO
+      </span>
+    </span>
+  </Link>
 
-        <Link
-          href="/#kontak"
-          className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-blue-100 sm:px-5"
-        >
-          Hubungi kami <ArrowUpRight size={16} />
-        </Link>
-      </header>
+  <nav
+    aria-label="Navigasi utama"
+    className="hidden items-center gap-6 text-sm text-slate-300 lg:flex"
+  >
+    <Link href="/#beranda" className="transition hover:text-white">
+      Beranda
+    </Link>
+    <Link href="/#layanan" className="transition hover:text-white">
+      Layanan
+    </Link>
+    <Link href="/#proses" className="transition hover:text-white">
+      Proses
+    </Link>
+    <Link href="/#teknologi" className="transition hover:text-white">
+      Teknologi
+    </Link>
+    <Link href="/tentang-kami" className="text-white">
+      Tentang Kami
+    </Link>
+    <Link href="/#kontak" className="transition hover:text-white">
+      Kontak
+    </Link>
+  </nav>
+
+  <Link
+    href="/#kontak"
+    className="hidden items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-blue-100 lg:inline-flex"
+  >
+    Konsultasi proyek <ArrowUpRight size={16} />
+  </Link>
+
+  <div className="flex items-center gap-2 lg:hidden">
+    <Link
+      href="/tentang-kami"
+      className="inline-flex items-center rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/[0.05]"
+      aria-current="page"
+    >
+      Tentang
+    </Link>
+    <Link
+      href="/#kontak"
+      className="inline-flex items-center gap-1 rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/[0.05]"
+    >
+      Kontak <ArrowUpRight size={15} />
+    </Link>
+  </div>
+</header>
+
 
       <section className="relative z-10 mx-auto max-w-7xl px-5 pb-20 pt-12 sm:px-8 sm:pt-20 lg:px-10 lg:pb-28">
         <Link
