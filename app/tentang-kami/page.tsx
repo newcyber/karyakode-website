@@ -393,6 +393,9 @@ export default function AboutPage() {
             <Link href="/#kontak" className="transition hover:text-white">
               Kontak
             </Link>
+            <Link href="/kebijakan-privasi" className="transition hover:text-white">
+              Kebijakan Privasi
+            </Link>
           </div>
           <p className="text-xs text-slate-600">
             © {new Date().getFullYear()} KaryaKode. All rights reserved.

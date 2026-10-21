@@ -97,6 +97,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-7 text-sm sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
           <Link href="/" className="flex items-center gap-2 font-semibold"><Code2 size={18} /> KaryaKode</Link>
           <p className="text-slate-500">Website, aplikasi, dan dukungan teknis untuk kebutuhan bisnis.</p>
+          <Link href="/kebijakan-privasi" className="text-slate-400 transition hover:text-white">Kebijakan Privasi</Link>
           <p className="text-xs text-slate-600">© {new Date().getFullYear()} KaryaKode. All rights reserved.</p>
         </div>
       </footer>

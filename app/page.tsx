@@ -342,10 +342,11 @@ export default function Home() {
       <div className="max-w-2xl">
         <p className="text-xs font-semibold tracking-[0.22em] text-blue-300">PUNYA IDE ATAU KEBUTUHAN?</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Mari wujudkan solusi digital yang kamu butuhkan.</h2>
-        <p className="mt-4 leading-7 text-slate-300">Ceritakan tujuan dan tantangan bisnismu. Permintaan konsultasi akan disimpan agar dapat ditindaklanjuti setelah sistem kontak terhubung ke database.</p>
+        <p className="mt-4 leading-7 text-slate-300">Ceritakan tujuan dan tantangan bisnismu. Status pengiriman akan dikonfirmasi setelah sistem memproses permintaan konsultasimu.</p>
       </div>
       <div className="mt-8">
         <ContactForm />
+        <p className="mt-4 text-xs leading-6 text-slate-500">Dengan mengirim formulir, Anda memahami pemrosesan informasi konsultasi sebagaimana dijelaskan dalam <a href="/kebijakan-privasi" className="text-slate-300 underline decoration-white/30 underline-offset-4 transition hover:text-white">Kebijakan Privasi</a>.</p>
       </div>
     </div>
   </div>
@@ -359,6 +360,7 @@ export default function Home() {
             <a href="/tentang-kami" className="transition hover:text-white">Tentang Kami</a>
             <a href="#layanan" className="transition hover:text-white">Layanan</a>
             <a href="#kontak" className="transition hover:text-white">Kontak</a>
+            <a href="/kebijakan-privasi" className="transition hover:text-white">Kebijakan Privasi</a>
           </nav>
           <p className="text-xs text-slate-600">© {new Date().getFullYear()} KaryaKode. All rights reserved.</p>
         </div>
