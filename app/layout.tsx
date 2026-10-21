@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import FloatingActions from "@/components/floating-actions";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://karyakode.com"),
@@ -42,7 +43,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body>{children}</body>
+      <body>
+        {children}
+        <FloatingActions />
+      </body>
     </html>
   );
 }
