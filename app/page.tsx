@@ -133,6 +133,7 @@ export default function Home() {
           <a className="transition hover:text-white" href="#teknologi">Teknologi</a>
           <a className="transition hover:text-white" href="/tentang-kami">Tentang Kami</a>
           <a className="transition hover:text-white" href="/price-list">Price List</a>
+          <a className="transition hover:text-white" href="/project-planner">Project Planner</a>
           <a className="transition hover:text-white" href="#kontak">Kontak</a>
         </nav>
 
@@ -149,6 +150,7 @@ export default function Home() {
           <a href="/price-list" className="inline-flex items-center rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/[0.05]">
             Harga
           </a>
+          <a href="/project-planner" className="inline-flex items-center rounded-full border border-blue-400/30 px-3 py-2 text-sm text-blue-200 transition hover:bg-blue-400/10">Rencana</a>
           <a href="#kontak" className="inline-flex items-center gap-1 rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/[0.05]" aria-label="Ke bagian kontak">
             Kontak <ArrowUpRight size={15} />
           </a>
@@ -365,6 +367,7 @@ export default function Home() {
             <a href="/price-list" className="transition hover:text-white">Price List</a>
             <a href="#layanan" className="transition hover:text-white">Layanan</a>
             <a href="#kontak" className="transition hover:text-white">Kontak</a>
+            <a href="/project-planner" className="transition hover:text-white">Project Planner</a>
             <a href="/kebijakan-privasi" className="transition hover:text-white">Kebijakan Privasi</a>
           </nav>
           <p className="text-xs text-slate-600">© {new Date().getFullYear()} KaryaKode. All rights reserved.</p>

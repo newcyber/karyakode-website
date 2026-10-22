@@ -69,6 +69,9 @@ export default function PriceListPage() {
           <Link href="/price-list" aria-current="page" className="text-white">
             Price List
           </Link>
+          <Link href="/project-planner" className="transition hover:text-white">
+            Project Planner
+          </Link>
           <Link
             href="/tentang-kami"
             className="transition hover:text-white"
@@ -119,6 +122,13 @@ export default function PriceListPage() {
             >
               <MessageCircle size={17} />
               Konsultasikan proyek
+              <ArrowUpRight size={16} />
+            </Link>
+            <Link
+              href="/project-planner"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-blue-400/30 px-6 py-3.5 text-sm font-semibold text-blue-200 transition hover:bg-blue-400/[0.08]"
+            >
+              Susun brief proyek
               <ArrowUpRight size={16} />
             </Link>
             <Link
