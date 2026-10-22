@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { CheckCircle2, LoaderCircle, Send } from "lucide-react";
 
 const serviceOptions = [
@@ -24,6 +24,36 @@ export default function ContactForm() {
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState<SubmitResult | null>(null);
+  const [service, setService] = useState("");
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    try {
+      const key = "karyakode:project-brief";
+      const stored = sessionStorage.getItem(key);
+      if (!stored) return;
+
+      sessionStorage.removeItem(key);
+      const brief = JSON.parse(stored) as {
+        service?: unknown;
+        message?: unknown;
+      };
+
+      const validService = serviceOptions.some(
+        (option) => option.value === brief.service,
+      );
+
+      if (validService) {
+        setService(brief.service as string);
+      }
+
+      if (typeof brief.message === "string") {
+        setMessage(brief.message.slice(0, 3000));
+      }
+    } catch {
+      setError("Brief tidak dapat dimuat otomatis. Silakan isi formulir secara manual.");
+    }
+  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -96,7 +126,7 @@ export default function ContactForm() {
             </div>
             <div>
               <label htmlFor="contact-service" className="text-sm font-medium text-slate-200">Layanan yang dibutuhkan <span aria-hidden="true" className="text-blue-300">*</span></label>
-              <select id="contact-service" name="service" required defaultValue="" className={fieldClass}>
+              <select id="contact-service" name="service" required value={service} onChange={(event) => setService(event.target.value)} className={fieldClass}>
                 <option value="" disabled>Pilih layanan</option>
                 {serviceOptions.map((option) => <option key={option.value} value={option.value} className="bg-[#0b0d12]">{option.label}</option>)}
               </select>
@@ -105,7 +135,7 @@ export default function ContactForm() {
 
           <div>
             <label htmlFor="contact-message" className="text-sm font-medium text-slate-200">Ceritakan kebutuhan proyek <span aria-hidden="true" className="text-blue-300">*</span></label>
-            <textarea id="contact-message" name="message" required minLength={20} maxLength={3000} rows={5} className={`${fieldClass} resize-y`} placeholder="Tujuan, masalah yang ingin diselesaikan, fitur yang dibutuhkan, atau konteks lainnya (minimal 20 karakter)." />
+            <textarea id="contact-message" name="message" required minLength={20} maxLength={3000} rows={5} value={message} onChange={(event) => setMessage(event.target.value.slice(0, 3000))} className={`${fieldClass} resize-y`} placeholder="Tujuan, masalah yang ingin diselesaikan, fitur yang dibutuhkan, atau konteks lainnya (minimal 20 karakter)." />
             <p className="mt-2 text-xs leading-5 text-slate-500">20–3.000 karakter. Jangan masukkan kata sandi atau data rahasia.</p>
           </div>
 

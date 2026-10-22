@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
+  ArrowUpRight,
   Check,
   CheckCircle2,
   Clipboard,
@@ -103,6 +104,35 @@ export default function ProjectPlanner() {
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
       setError("Brief tidak dapat disalin otomatis. Silakan pilih dan salin teks ringkasan.");
+    }
+  }
+
+  function continueToContact() {
+    if (!selectedService) {
+      setStep(1);
+      setError("Pilih jenis layanan terlebih dahulu.");
+      return;
+    }
+
+    const serviceMap: Record<string, string> = {
+      website: "website-bisnis",
+      webapp: "aplikasi-web",
+      mobile: "aplikasi-mobile",
+      api: "backend-api",
+      maintenance: "maintenance-dukungan",
+    };
+
+    try {
+      sessionStorage.setItem(
+        "karyakode:project-brief",
+        JSON.stringify({
+          service: serviceMap[service] ?? "belum-yakin",
+          message: brief.slice(0, 3000),
+        }),
+      );
+      window.location.assign("/#kontak");
+    } catch {
+      setError("Brief tidak dapat diteruskan otomatis. Silakan salin brief dan tempelkan di formulir kontak.");
     }
   }
 
@@ -311,14 +341,23 @@ export default function ProjectPlanner() {
               Lanjutkan <ArrowRight size={16} />
             </button>
           ) : (
-            <button
-              type="button"
-              onClick={copyBrief}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-400"
-            >
-              {copied ? <ClipboardCheck size={17} /> : <Clipboard size={17} />}
-              {copied ? "Brief tersalin" : "Salin brief proyek"}
-            </button>
+            <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
+              <button
+                type="button"
+                onClick={copyBrief}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/[0.04]"
+              >
+                {copied ? <ClipboardCheck size={17} /> : <Clipboard size={17} />}
+                {copied ? "Brief tersalin" : "Salin brief proyek"}
+              </button>
+              <button
+                type="button"
+                onClick={continueToContact}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-400"
+              >
+                Lanjutkan ke Konsultasi <ArrowUpRight size={16} />
+              </button>
+            </div>
           )}
         </div>
       </section>
