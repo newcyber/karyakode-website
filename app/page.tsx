@@ -132,6 +132,7 @@ export default function Home() {
           <a className="transition hover:text-white" href="#proses">Proses</a>
           <a className="transition hover:text-white" href="#teknologi">Teknologi</a>
           <a className="transition hover:text-white" href="/tentang-kami">Tentang Kami</a>
+          <a className="transition hover:text-white" href="/price-list">Price List</a>
           <a className="transition hover:text-white" href="#kontak">Kontak</a>
         </nav>
 
@@ -144,6 +145,9 @@ export default function Home() {
         <div className="flex items-center gap-2 lg:hidden">
           <a href="/tentang-kami" className="inline-flex items-center rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/[0.05]">
             Tentang
+          </a>
+          <a href="/price-list" className="inline-flex items-center rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/[0.05]">
+            Harga
           </a>
           <a href="#kontak" className="inline-flex items-center gap-1 rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/[0.05]" aria-label="Ke bagian kontak">
             Kontak <ArrowUpRight size={15} />
@@ -358,6 +362,7 @@ export default function Home() {
           <p className="text-slate-500">Website, aplikasi, dan dukungan teknis untuk kebutuhan bisnis.</p>
           <nav aria-label="Navigasi footer" className="flex flex-wrap gap-x-5 gap-y-2 text-slate-400">
             <a href="/tentang-kami" className="transition hover:text-white">Tentang Kami</a>
+            <a href="/price-list" className="transition hover:text-white">Price List</a>
             <a href="#layanan" className="transition hover:text-white">Layanan</a>
             <a href="#kontak" className="transition hover:text-white">Kontak</a>
             <a href="/kebijakan-privasi" className="transition hover:text-white">Kebijakan Privasi</a>

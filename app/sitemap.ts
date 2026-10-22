@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const publicPages: MetadataRoute.Sitemap = [
     { url: siteUrl },
     { url: `${siteUrl}/tentang-kami` },
+    { url: `${siteUrl}/price-list` },
   ];
 
   const servicePages: MetadataRoute.Sitemap = serviceDetails.map((service) => ({

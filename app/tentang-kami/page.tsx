@@ -105,6 +105,9 @@ export default function AboutPage() {
     <Link href="/tentang-kami" className="text-white">
       Tentang Kami
     </Link>
+    <Link href="/price-list" className="transition hover:text-white">
+      Price List
+    </Link>
     <Link href="/#kontak" className="transition hover:text-white">
       Kontak
     </Link>
@@ -118,6 +121,9 @@ export default function AboutPage() {
   </Link>
 
   <div className="flex items-center gap-2 lg:hidden">
+    <Link href="/price-list" className="inline-flex items-center rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/[0.05]">
+      Harga
+    </Link>
     <Link
       href="/tentang-kami"
       className="inline-flex items-center rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/[0.05]"
@@ -389,6 +395,9 @@ export default function AboutPage() {
             </Link>
             <Link href="/#layanan" className="transition hover:text-white">
               Layanan
+            </Link>
+            <Link href="/price-list" className="transition hover:text-white">
+              Price List
             </Link>
             <Link href="/#kontak" className="transition hover:text-white">
               Kontak
