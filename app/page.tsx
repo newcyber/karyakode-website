@@ -3,6 +3,7 @@ import Link from "next/link";
 import ContactForm from "@/components/contact-form";
 import CodeTypingEditor from "@/components/code-typing-editor";
 import ProjectQuickStart from "@/components/project-quick-start";
+import SiteHeader from "@/components/site-header";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -110,53 +111,16 @@ export default function Home() {
 
   return (
     <>
-    <a href="#konten-utama" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:font-semibold focus:text-slate-950">
+    <a
+      href="#konten-utama"
+      className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:font-semibold focus:text-slate-950"
+    >
       Lewati ke konten utama
     </a>
     <main id="konten-utama" className="min-h-screen overflow-hidden bg-[#0b0d12] text-[#f3f4f6]">
       <div className="pointer-events-none fixed inset-0 -z-0 bg-[radial-gradient(ellipse_at_70%_0%,rgba(57,120,246,0.15),transparent_42%)]" />
 
-      <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
-        <a href="#beranda" className="flex items-center gap-3" aria-label="KaryaKode, ke beranda">
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-white text-[#10131a]">
-            <Code2 size={23} strokeWidth={2.5} />
-          </span>
-          <span>
-            <span className="block text-lg font-bold tracking-tight">KaryaKode</span>
-            <span className="block text-[10px] font-semibold tracking-[0.22em] text-slate-500">DIGITAL STUDIO</span>
-          </span>
-        </a>
-
-        <nav aria-label="Navigasi utama" className="hidden items-center gap-6 text-sm text-slate-300 lg:flex">
-          <a className="transition hover:text-white" href="#beranda">Beranda</a>
-          <a className="transition hover:text-white" href="#layanan">Layanan</a>
-          <a className="transition hover:text-white" href="#proses">Proses</a>
-          <a className="transition hover:text-white" href="#teknologi">Teknologi</a>
-          <a className="transition hover:text-white" href="/tentang-kami">Tentang Kami</a>
-          <a className="transition hover:text-white" href="/price-list">Price List</a>
-          <a className="transition hover:text-white" href="/project-planner">Project Planner</a>
-          <a className="transition hover:text-white" href="#kontak">Kontak</a>
-        </nav>
-
-        <a
-          href={contactUrl}
-          className="hidden items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-blue-100 sm:inline-flex"
-        >
-          Konsultasi proyek <ArrowUpRight size={16} />
-        </a>
-        <div className="flex items-center gap-2 lg:hidden">
-          <a href="/tentang-kami" className="inline-flex items-center rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/[0.05]">
-            Tentang
-          </a>
-          <a href="/price-list" className="inline-flex items-center rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/[0.05]">
-            Harga
-          </a>
-          <a href="/project-planner" className="inline-flex items-center rounded-full border border-blue-400/30 px-3 py-2 text-sm text-blue-200 transition hover:bg-blue-400/10">Rencana</a>
-          <a href="#kontak" className="inline-flex items-center gap-1 rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/[0.05]" aria-label="Ke bagian kontak">
-            Kontak <ArrowUpRight size={15} />
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section id="beranda" className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 px-5 pb-24 pt-16 sm:px-8 md:pt-24 lg:grid-cols-[1.08fr_0.92fr] lg:px-10 lg:pb-32 lg:pt-28">
         <div>

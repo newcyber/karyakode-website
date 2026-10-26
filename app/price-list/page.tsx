@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { serviceDetails } from "@/lib/services";
+import SiteHeader from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Price List Layanan",
@@ -73,56 +74,7 @@ export default function PriceListPage() {
     >
       <div className="pointer-events-none fixed inset-0 -z-0 bg-[radial-gradient(ellipse_at_70%_0%,rgba(57,120,246,0.15),transparent_42%)]" />
 
-      <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
-        <Link
-          href="/"
-          className="flex items-center gap-3"
-          aria-label="KaryaKode, ke beranda"
-        >
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-white text-[#10131a]">
-            <Code2 size={23} strokeWidth={2.5} />
-          </span>
-          <span>
-            <span className="block text-lg font-bold tracking-tight">
-              KaryaKode
-            </span>
-            <span className="block text-[10px] font-semibold tracking-[0.22em] text-slate-500">
-              DIGITAL STUDIO
-            </span>
-          </span>
-        </Link>
-
-        <nav
-          aria-label="Navigasi utama"
-          className="hidden items-center gap-6 text-sm text-slate-300 lg:flex"
-        >
-          <Link href="/" className="transition hover:text-white">
-            Beranda
-          </Link>
-          <Link href="/#layanan" className="transition hover:text-white">
-            Layanan
-          </Link>
-          <Link href="/price-list" aria-current="page" className="text-white">
-            Price List
-          </Link>
-          <Link href="/project-planner" className="transition hover:text-white">
-            Project Planner
-          </Link>
-          <Link
-            href="/tentang-kami"
-            className="transition hover:text-white"
-          >
-            Tentang Kami
-          </Link>
-        </nav>
-
-        <Link
-          href="/#kontak"
-          className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-blue-100 sm:px-5"
-        >
-          Konsultasi <ArrowUpRight size={16} />
-        </Link>
-      </header>
+      <SiteHeader />
 
       <section className="relative z-10 mx-auto max-w-7xl px-5 pb-16 pt-12 sm:px-8 sm:pt-20 lg:px-10 lg:pb-24">
         <Link

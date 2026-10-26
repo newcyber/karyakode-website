@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ProjectPlanner from "@/components/project-planner";
+import SiteHeader from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Project Planner Interaktif | KaryaKode",
@@ -35,28 +36,7 @@ export default async function ProjectPlannerPage({
 
   return (
     <main className="min-h-screen bg-[#090b10] text-white">
-      <header className="border-b border-white/[0.08]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 sm:px-8">
-          <Link href="/" className="text-xl font-bold tracking-tight">
-            KaryaKode<span className="text-blue-400">.</span>
-          </Link>
-
-          <nav className="flex items-center gap-4 text-sm text-slate-300 sm:gap-6">
-            <Link href="/layanan" className="transition hover:text-white">
-              Layanan
-            </Link>
-            <Link href="/price-list" className="transition hover:text-white">
-              Price List
-            </Link>
-            <Link
-              href="/"
-              className="rounded-full bg-blue-500 px-4 py-2.5 font-semibold text-white transition hover:bg-blue-400"
-            >
-              Beranda
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section className="mx-auto max-w-7xl px-5 pb-12 pt-14 sm:px-8 sm:pt-20">
         <div className="mx-auto mb-10 max-w-3xl text-center">

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, Code2 } from "lucide-react";
 import { getServiceBySlug, serviceDetails } from "@/lib/services";
+import SiteHeader from "@/components/site-header";
 
 type ServicePageProps = {
   params: Promise<{ slug: string }>;
@@ -40,13 +41,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   return (
     <main id="konten-utama" className="min-h-screen overflow-hidden bg-[#0b0d12] text-[#f3f4f6]">
       <div className="pointer-events-none fixed inset-0 -z-0 bg-[radial-gradient(ellipse_at_70%_0%,rgba(57,120,246,0.15),transparent_42%)]" />
-      <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
-        <Link href="/" className="flex items-center gap-3" aria-label="KaryaKode, ke beranda">
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-white text-[#10131a]"><Code2 size={23} strokeWidth={2.5} /></span>
-          <span><span className="block text-lg font-bold tracking-tight">KaryaKode</span><span className="block text-[10px] font-semibold tracking-[0.22em] text-slate-500">DIGITAL STUDIO</span></span>
-        </Link>
-        <Link href="/#kontak" className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-blue-100 sm:px-5">Diskusikan kebutuhan <ArrowUpRight size={16} /></Link>
-      </header>
+      <SiteHeader />
 
       <section className="relative z-10 mx-auto max-w-7xl px-5 pb-16 pt-12 sm:px-8 sm:pt-20 lg:px-10 lg:pb-20">
         <Link href="/#layanan" className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-white"><ArrowLeft size={16} /> Semua layanan</Link>
