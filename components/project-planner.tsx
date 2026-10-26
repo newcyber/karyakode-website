@@ -48,9 +48,13 @@ const budgets = [
 const fieldClass =
   "w-full rounded-xl border border-white/10 bg-[#0b0d12] px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20";
 
-export default function ProjectPlanner() {
+export default function ProjectPlanner({
+  initialService = "",
+}: {
+  initialService?: string;
+}) {
   const [step, setStep] = useState(1);
-  const [service, setService] = useState("");
+  const [service, setService] = useState(initialService);
   const [features, setFeatures] = useState<string[]>([]);
   const [timeline, setTimeline] = useState("flexible");
   const [budget, setBudget] = useState("discuss");

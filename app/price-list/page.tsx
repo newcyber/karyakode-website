@@ -29,6 +29,42 @@ export const metadata: Metadata = {
   },
 };
 
+const pricingBySlug: Record<
+  string,
+  { price: string; timeline: string; note: string; plannerService: string }
+> = {
+  "website-bisnis": {
+    price: "Rp4.500.000–Rp9.000.000",
+    timeline: "Estimasi 2–4 minggu",
+    note: "Untuk website bisnis dengan scope awal yang disepakati. Landing page sederhana dapat dimulai dari Rp2.500.000.",
+    plannerService: "website",
+  },
+  "aplikasi-web": {
+    price: "Mulai Rp12.000.000",
+    timeline: "Estimasi MVP 4–8 minggu",
+    note: "Harga akhir mengikuti jumlah fitur, peran pengguna, aturan bisnis, dan integrasi.",
+    plannerService: "webapp",
+  },
+  "backend-api": {
+    price: "Mulai Rp3.500.000",
+    timeline: "Estimasi 1–3 minggu",
+    note: "Untuk API atau integrasi sederhana. Sistem kompleks dan integrasi multi-layanan dihitung terpisah.",
+    plannerService: "api",
+  },
+  "aplikasi-mobile": {
+    price: "Mulai Rp25.000.000",
+    timeline: "Estimasi MVP 6–12 minggu",
+    note: "Untuk MVP dengan scope terbatas. Platform, backend, integrasi, dan proses publikasi memengaruhi biaya.",
+    plannerService: "mobile",
+  },
+  "maintenance-dukungan": {
+    price: "Rp750.000–Rp3.000.000/bulan",
+    timeline: "Paket dukungan bulanan",
+    note: "Kuota pengerjaan, prioritas, dan waktu respons ditentukan dalam kesepakatan layanan.",
+    plannerService: "maintenance",
+  },
+};
+
 export default function PriceListPage() {
   return (
     <main
@@ -158,6 +194,58 @@ export default function PriceListPage() {
             </p>
           </div>
 
+          <div className="mt-7 grid gap-4 md:grid-cols-2">
+            <article className="rounded-2xl border border-blue-400/20 bg-[#101722] p-5 sm:p-6">
+              <p className="text-xs font-semibold tracking-[0.18em] text-blue-300">
+                PAKET LANDING PAGE
+              </p>
+              <h3 className="mt-3 text-xl font-semibold">Landing Page Bisnis</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-400">
+                Untuk promosi produk, pengumpulan prospek, kampanye, atau
+                memperkenalkan satu layanan bisnis.
+              </p>
+              <p className="mt-5 text-2xl font-bold text-blue-300">
+                Rp2.500.000–Rp5.000.000
+              </p>
+              <p className="mt-2 text-xs leading-5 text-slate-400">
+                Estimasi 1–2 minggu. Harga mengikuti struktur halaman,
+                kebutuhan formulir, desain, dan integrasi.
+              </p>
+              <Link
+                href="/project-planner?service=website"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-blue-100"
+              >
+                Susun brief landing page
+                <ArrowRight size={15} />
+              </Link>
+            </article>
+
+            <article className="rounded-2xl border border-blue-400/20 bg-[#101722] p-5 sm:p-6">
+              <p className="text-xs font-semibold tracking-[0.18em] text-blue-300">
+                PAKET TOKO ONLINE
+              </p>
+              <h3 className="mt-3 text-xl font-semibold">Toko Online</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-400">
+                Untuk katalog produk, keranjang belanja, checkout, dan alur
+                pesanan sesuai kebutuhan bisnis.
+              </p>
+              <p className="mt-5 text-2xl font-bold text-blue-300">
+                Rp8.000.000–Rp20.000.000
+              </p>
+              <p className="mt-2 text-xs leading-5 text-slate-400">
+                Estimasi awal 3–8 minggu. Pembayaran, pengiriman, dashboard
+                admin, dan integrasi dapat memengaruhi biaya.
+              </p>
+              <Link
+                href="/project-planner?service=webapp"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-blue-100"
+              >
+                Susun brief toko online
+                <ArrowRight size={15} />
+              </Link>
+            </article>
+          </div>
+
           <div className="mt-9 grid gap-4 md:grid-cols-2">
             {serviceDetails.map((service) => (
               <article
@@ -180,14 +268,18 @@ export default function PriceListPage() {
                   {service.summary}
                 </p>
 
-                <div className="mt-6 rounded-xl border border-blue-400/15 bg-blue-400/[0.05] p-4">
-                  <p className="text-xs text-slate-400">Estimasi biaya</p>
-                  <p className="mt-1 text-lg font-semibold text-blue-300">
-                    Konsultasikan harga
+                <div className="mt-6 rounded-xl border border-blue-400/20 bg-blue-400/[0.06] p-4">
+                  <p className="text-xs font-medium text-slate-400">
+                    Estimasi investasi
                   </p>
-                  <p className="mt-2 text-xs leading-6 text-slate-500">
-                    Biaya disesuaikan dengan kebutuhan dan ruang lingkup
-                    proyek.
+                  <p className="mt-2 text-xl font-bold leading-snug tracking-tight text-blue-300">
+                    {pricingBySlug[service.slug]?.price ?? "Konsultasi scope"}
+                  </p>
+                  <p className="mt-2 text-xs font-medium text-slate-300">
+                    {pricingBySlug[service.slug]?.timeline}
+                  </p>
+                  <p className="mt-3 text-xs leading-6 text-slate-400">
+                    {pricingBySlug[service.slug]?.note}
                   </p>
                 </div>
 
@@ -214,11 +306,11 @@ export default function PriceListPage() {
                     <ArrowRight size={15} />
                   </Link>
                   <Link
-                    href="/#kontak"
+                    href={`/project-planner?service=${pricingBySlug[service.slug]?.plannerService ?? "website"}`}
                     className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-blue-100"
                   >
-                    Tanya harga
-                    <ArrowUpRight size={15} />
+                    Susun brief proyek
+                    <ArrowRight size={15} />
                   </Link>
                 </div>
               </article>

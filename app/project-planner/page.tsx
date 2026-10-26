@@ -11,7 +11,28 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ProjectPlannerPage() {
+export default async function ProjectPlannerPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ service?: string | string[] }>;
+}) {
+  const params = await searchParams;
+  const requestedService = params.service;
+
+  const allowedServices = [
+    "website",
+    "webapp",
+    "mobile",
+    "api",
+    "maintenance",
+  ] as const;
+
+  const initialService =
+    typeof requestedService === "string" &&
+    allowedServices.some((service) => service === requestedService)
+      ? requestedService
+      : "";
+
   return (
     <main className="min-h-screen bg-[#090b10] text-white">
       <header className="border-b border-white/[0.08]">
@@ -54,7 +75,7 @@ export default function ProjectPlannerPage() {
           </p>
         </div>
 
-        <ProjectPlanner />
+        <ProjectPlanner initialService={initialService} />
 
         <div className="mx-auto mt-10 max-w-3xl text-center">
           <p className="text-sm leading-6 text-slate-400">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ContactForm from "@/components/contact-form";
 import CodeTypingEditor from "@/components/code-typing-editor";
+import ProjectQuickStart from "@/components/project-quick-start";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -204,6 +205,13 @@ export default function Home() {
             <span><span className="block text-xs font-semibold text-white">Dibangun untuk kebutuhanmu</span><span className="mt-1 block text-[10px] text-slate-500">Bukan solusi satu untuk semua</span></span>
           </div>
         </div>
+      </section>
+
+      <section
+        aria-label="Mulai rencana proyek"
+        className="relative z-10 mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:px-10"
+      >
+        <ProjectQuickStart />
       </section>
 
       <section id="layanan" className="relative z-10 border-y border-white/[0.07] bg-white/[0.015]">
